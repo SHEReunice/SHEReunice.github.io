@@ -20,28 +20,32 @@
     var CONFIG = {"hostname":"shereunice.github.io","root":"/","scheme":"Mist","version":"8.0.0-rc.3","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
   </script>
 
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Hexo">
-<meta property="og:url" content="http://shereunice.github.io/index.html">
+  <meta name="description" content="实验一线性表练习1、实现顺序表的初始化、在指定位置插入和删除元素1234567891011 #define INITSIZE 100#define INCREASE 20#define OK 1#define ERROR 0#define OVERFLOW -1typedef struct &amp;#123;	int *elem;	int length;	int size;&amp;#125;SqList;">
+<meta property="og:type" content="article">
+<meta property="og:title" content="数据结构实验报告">
+<meta property="og:url" content="http://shereunice.github.io/2020/08/04/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A/index.html">
 <meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="实验一线性表练习1、实现顺序表的初始化、在指定位置插入和删除元素1234567891011 #define INITSIZE 100#define INCREASE 20#define OK 1#define ERROR 0#define OVERFLOW -1typedef struct &amp;#123;	int *elem;	int length;	int size;&amp;#125;SqList;">
 <meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2020-08-04T14:31:16.638Z">
+<meta property="article:modified_time" content="2020-08-04T14:32:20.644Z">
 <meta property="article:author" content="SHEReunice">
 <meta name="twitter:card" content="summary">
 
-<link rel="canonical" href="http://shereunice.github.io/">
+<link rel="canonical" href="http://shereunice.github.io/2020/08/04/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A/">
 
 
 <script id="page-configurations">
   // https://hexo.io/docs/variables.html
   CONFIG.page = {
     sidebar: "",
-    isHome : true,
-    isPost : false,
+    isHome : false,
+    isPost : true,
     lang   : 'en'
   };
 </script>
 
-  <title>Hexo</title>
+  <title>数据结构实验报告 | Hexo</title>
   
 
 
@@ -121,9 +125,10 @@
         <div class="content-wrap">
           
 
-          <div class="content index posts-expand">
+          <div class="content post posts-expand">
             
-      
+
+    
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
@@ -139,10 +144,9 @@
       <meta itemprop="name" content="Hexo">
     </span>
       <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/08/04/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A/" class="post-title-link" itemprop="url">数据结构实验报告</a>
-        </h2>
+        <h1 class="post-title" itemprop="name headline">
+          数据结构实验报告
+        </h1>
 
         <div class="post-meta">
             <span class="post-meta-item">
@@ -166,7 +170,7 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h1 id="实验一线性表练习"><a href="#实验一线性表练习" class="headerlink" title="实验一线性表练习"></a>实验一线性表练习</h1><h2 id="1、实现顺序表的初始化、在指定位置插入和删除元素"><a href="#1、实现顺序表的初始化、在指定位置插入和删除元素" class="headerlink" title="1、实现顺序表的初始化、在指定位置插入和删除元素"></a>1、实现顺序表的初始化、在指定位置插入和删除元素</h2><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"> <span class="meta">#<span class="meta-keyword">define</span> INITSIZE 100</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> INCREASE 20</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> OK 1</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> ERROR 0</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> OVERFLOW -1</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span> &#123;</span></span><br><span class="line">	<span class="keyword">int</span> *elem;</span><br><span class="line">	<span class="keyword">int</span> length;</span><br><span class="line">	<span class="keyword">int</span> <span class="built_in">size</span>;</span><br><span class="line">&#125;SqList;</span><br></pre></td></tr></table></figure>
+        <h1 id="实验一线性表练习"><a href="#实验一线性表练习" class="headerlink" title="实验一线性表练习"></a>实验一线性表练习</h1><h2 id="1、实现顺序表的初始化、在指定位置插入和删除元素"><a href="#1、实现顺序表的初始化、在指定位置插入和删除元素" class="headerlink" title="1、实现顺序表的初始化、在指定位置插入和删除元素"></a>1、实现顺序表的初始化、在指定位置插入和删除元素</h2><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"> <span class="meta">#<span class="meta-keyword">define</span> INITSIZE 100</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> INCREASE 20</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> OK 1</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> ERROR 0</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> OVERFLOW -1</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span> &#123;</span></span><br><span class="line">	<span class="keyword">int</span> *elem;</span><br><span class="line">	<span class="keyword">int</span> length;</span><br><span class="line">	<span class="keyword">int</span> <span class="built_in">size</span>;</span><br><span class="line">&#125;SqList;</span><br></pre></td></tr></table></figure>
 
 <h3 id="1、初始化顺序表"><a href="#1、初始化顺序表" class="headerlink" title="1、初始化顺序表"></a>1、初始化顺序表</h3><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//该运算的结果是构造一个空的线性表L,实际上只需将length成员设置为0即可	</span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">initlist</span><span class="params">(SqList &amp;L)</span></span>&#123;</span><br><span class="line">	<span class="comment">//构造空的线性表L</span></span><br><span class="line">	L.elem = (<span class="keyword">int</span> *)<span class="built_in">malloc</span>(INITSIZE * <span class="keyword">sizeof</span>(<span class="keyword">int</span>));</span><br><span class="line">	<span class="keyword">if</span>(!L.elem)  <span class="built_in">exit</span>(OVERFLOW);</span><br><span class="line">	L.length = <span class="number">0</span>;</span><br><span class="line">	L.<span class="built_in">size</span> = INITSIZE;</span><br><span class="line">	<span class="keyword">return</span> OK; </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
@@ -259,391 +263,30 @@
 
 
 <h1 id="实验三——树的练习"><a href="#实验三——树的练习" class="headerlink" title="实验三——树的练习"></a>实验三——树的练习</h1><h2 id="1、采用二叉链表先序遍历二叉树（递归和非递归-两种方式）；"><a href="#1、采用二叉链表先序遍历二叉树（递归和非递归-两种方式）；" class="headerlink" title="1、采用二叉链表先序遍历二叉树（递归和非递归 两种方式）；"></a>1、采用二叉链表先序遍历二叉树（递归和非递归 两种方式）；</h2><h2 id="2、采用二叉链表中序遍历二叉树（递归和非递归-两种方式）；"><a href="#2、采用二叉链表中序遍历二叉树（递归和非递归-两种方式）；" class="headerlink" title="2、采用二叉链表中序遍历二叉树（递归和非递归 两种方式）；"></a>2、采用二叉链表中序遍历二叉树（递归和非递归 两种方式）；</h2><h2 id="3、构造Huffman树，并求其对应的编码。"><a href="#3、构造Huffman树，并求其对应的编码。" class="headerlink" title="3、构造Huffman树，并求其对应的编码。"></a>3、构造Huffman树，并求其对应的编码。</h2><h1 id="实验四——图的练习"><a href="#实验四——图的练习" class="headerlink" title="实验四——图的练习"></a>实验四——图的练习</h1><h2 id="1、实现深度优先遍历图（递归和非递归两种方-式）"><a href="#1、实现深度优先遍历图（递归和非递归两种方-式）" class="headerlink" title="1、实现深度优先遍历图（递归和非递归两种方 式）"></a>1、实现深度优先遍历图（递归和非递归两种方 式）</h2><h2 id="2、分别采用普里姆算法和克鲁斯卡尔算法构造最-小生成树"><a href="#2、分别采用普里姆算法和克鲁斯卡尔算法构造最-小生成树" class="headerlink" title="2、分别采用普里姆算法和克鲁斯卡尔算法构造最 小生成树"></a>2、分别采用普里姆算法和克鲁斯卡尔算法构造最 小生成树</h2><h2 id="3、给定一个图，求解其关键路径"><a href="#3、给定一个图，求解其关键路径" class="headerlink" title="3、给定一个图，求解其关键路径"></a>3、给定一个图，求解其关键路径</h2><h2 id="4、编程实现Dijkstra算法。"><a href="#4、编程实现Dijkstra算法。" class="headerlink" title="4、编程实现Dijkstra算法。"></a>4、编程实现Dijkstra算法。</h2><h1 id="实验五——查找练习"><a href="#实验五——查找练习" class="headerlink" title="实验五——查找练习"></a>实验五——查找练习</h1><h2 id="1、输入一线性表，采用顺序查找方式查找一指定-的元素"><a href="#1、输入一线性表，采用顺序查找方式查找一指定-的元素" class="headerlink" title="1、输入一线性表，采用顺序查找方式查找一指定 的元素"></a>1、输入一线性表，采用顺序查找方式查找一指定 的元素</h2><h2 id="2、输入一有序表，采用折半查找方式查找一指定-的元素"><a href="#2、输入一有序表，采用折半查找方式查找一指定-的元素" class="headerlink" title="2、输入一有序表，采用折半查找方式查找一指定 的元素"></a>2、输入一有序表，采用折半查找方式查找一指定 的元素</h2><h2 id="3、在已知的二叉排序树中查找一指定的元素，查-找不成功则将该元素插入到该二叉排序树中，否则-返回true"><a href="#3、在已知的二叉排序树中查找一指定的元素，查-找不成功则将该元素插入到该二叉排序树中，否则-返回true" class="headerlink" title="3、在已知的二叉排序树中查找一指定的元素，查 找不成功则将该元素插入到该二叉排序树中，否则 返回true"></a>3、在已知的二叉排序树中查找一指定的元素，查 找不成功则将该元素插入到该二叉排序树中，否则 返回true</h2><h2 id="4、在开放定址哈希表中查找一指定关键字值的元-素，若查找成功则返回true，否则将该元素插入到-该哈希表中"><a href="#4、在开放定址哈希表中查找一指定关键字值的元-素，若查找成功则返回true，否则将该元素插入到-该哈希表中" class="headerlink" title="4、在开放定址哈希表中查找一指定关键字值的元 素，若查找成功则返回true，否则将该元素插入到 该哈希表中"></a>4、在开放定址哈希表中查找一指定关键字值的元 素，若查找成功则返回true，否则将该元素插入到 该哈希表中</h2><h1 id="实验六——内部排序练习"><a href="#实验六——内部排序练习" class="headerlink" title="实验六——内部排序练习"></a>实验六——内部排序练习</h1><h2 id="1、实现直接插入排序、2-路插入排序和希-尔排序"><a href="#1、实现直接插入排序、2-路插入排序和希-尔排序" class="headerlink" title="1、实现直接插入排序、2-路插入排序和希 尔排序"></a>1、实现直接插入排序、2-路插入排序和希 尔排序</h2><h2 id="2、实现起泡排序、双向起泡排序和快速排-序"><a href="#2、实现起泡排序、双向起泡排序和快速排-序" class="headerlink" title="2、实现起泡排序、双向起泡排序和快速排 序"></a>2、实现起泡排序、双向起泡排序和快速排 序</h2><h2 id="3、实现简单选择排序和堆排序"><a href="#3、实现简单选择排序和堆排序" class="headerlink" title="3、实现简单选择排序和堆排序"></a>3、实现简单选择排序和堆排序</h2><h2 id="4、实现归并排序。"><a href="#4、实现归并排序。" class="headerlink" title="4、实现归并排序。"></a>4、实现归并排序。</h2>
-      
     </div>
 
     
     
     
+
       <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="http://shereunice.github.io/2020/07/28/C%E8%AF%AD%E8%A8%80%E7%BB%93%E6%9E%84%E5%AD%A6%E4%B9%A0/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="SHEReunice">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hexo">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/07/28/C%E8%AF%AD%E8%A8%80%E7%BB%93%E6%9E%84%E5%AD%A6%E4%B9%A0/" class="post-title-link" itemprop="url">C语言结构学习</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2020-07-28 22:06:11" itemprop="dateCreated datePublished" datetime="2020-07-28T22:06:11+08:00">2020-07-28</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2020-07-29 09:02:08" itemprop="dateModified" datetime="2020-07-29T09:02:08+08:00">2020-07-29</time>
-              </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="结构变量"><a href="#结构变量" class="headerlink" title="结构变量"></a>结构变量</h1><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">struct</span> &#123;</span></span><br><span class="line">    <span class="keyword">int</span> number;</span><br><span class="line">    <span class="keyword">char</span> name[NAME_LEN+<span class="number">1</span>];</span><br><span class="line">    <span class="keyword">int</span> on_hand;</span><br><span class="line">&#125;part1,part2;</span><br></pre></td></tr></table></figure>
-<h2 id="指定初始化："><a href="#指定初始化：" class="headerlink" title="指定初始化："></a>指定初始化：</h2><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#123;.number = <span class="number">528</span>&#125;</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>点号和成员名称的组合成为<strong>指示符</strong><h2 id="访问成员结构用句点"><a href="#访问成员结构用句点" class="headerlink" title="访问成员结构用句点.:"></a>访问成员结构用句点.:</h2></li>
-</ul>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">part1.number = <span class="number">258</span>;</span><br><span class="line"></span><br><span class="line">part1.number++;</span><br></pre></td></tr></table></figure>
-
-<h2 id="结构可以用-复制："><a href="#结构可以用-复制：" class="headerlink" title="结构可以用=复制："></a>结构可以用=复制：</h2><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">struct</span> &#123;</span><span class="keyword">int</span> a[<span class="number">10</span>];&#125; a1,a2;</span><br><span class="line"></span><br><span class="line">   a1 = a2;</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li><p>嵌在结构内的数组也得到了复制，但运算符=仅适用于类型兼容的结构</p>
-</li>
-<li><p><strong><em>除了复制运算，C语言没有提供其它用于整个结构的操作，不可以用==和!=来判断两个结构是否相等</em></strong></p>
-</li>
-</ul>
-<h1 id="结构类型"><a href="#结构类型" class="headerlink" title="结构类型"></a>结构类型</h1><h2 id="结构标记的声明"><a href="#结构标记的声明" class="headerlink" title="结构标记的声明"></a>结构标记的声明</h2><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">struct</span> &#123;</span></span><br><span class="line">    <span class="keyword">int</span> number;</span><br><span class="line">    <span class="keyword">char</span> name[NAME_LEN+<span class="number">1</span>];</span><br><span class="line">    <span class="keyword">int</span> on_hand;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-<ul>
-<li><p>注意最后这个分号不能少，它表示声明结束</p>
-</li>
-<li><p>创建了标记part以后，就可以用它来声明变量了：</p>
-</li>
-</ul>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">part</span> <span class="title">part1</span>,<span class="title">part2</span>;</span></span><br></pre></td></tr></table></figure>
-
-<pre><code>***但是注意不要漏掉了struct***</code></pre><h2 id="结构类型的定义"><a href="#结构类型的定义" class="headerlink" title="结构类型的定义"></a>结构类型的定义</h2><ul>
-<li>除了声明结构标记，还可以用typedef来定义真实的类型名：</li>
-</ul>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span> &#123;</span></span><br><span class="line">    <span class="keyword">int</span> number;</span><br><span class="line">    <span class="keyword">char</span> a[<span class="number">10</span>];</span><br><span class="line">&#125; Part;</span><br></pre></td></tr></table></figure>
-<ul>
-<li><p>注意类型Part的名字要出现在定义的末尾，而不是在单词struct的后面</p>
-</li>
-<li><p>可以像内置类型那样使用Part，例如，可以使用它声明变量：</p>
-<p>  Part part1,part2;</p>
-</li>
-<li><p>因为类型Part是typedef的名字，所以不允许书写struct Part,无论在哪里声明，所有的Part类型的变量都是兼容的</p>
-</li>
-<li><p>通常既可以选择声明结构标记也可以使用typedef来定义一种特殊的结构类型的名字,但是，<strong><em>结构用于链表中，强制使用声明结构标记：</em></strong></p>
-<ul>
-<li><p>如：建立一个链表，用结构表示表中单个结点：</p>
-<p>  假设结点只包含一个整数（即结点的数据）和指向表中下一个结点的指针：</p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">node</span>&#123;</span></span><br><span class="line">    <span class="keyword">int</span> value;</span><br><span class="line">    <span class="class"><span class="keyword">struct</span> <span class="title">node</span> *<span class="title">next</span>;</span></span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></li>
-<li><p>注意成员next具有struct node *类型，这就意味着它能存储一个指向node结构的指针</p>
-<p>  <strong>因为在结构中有一个指向相同结构类型的指针成员（像node中的next),要求使用结构标记</strong></p>
-<p>  <strong><em>如果没有node标记，就没有办法声明next的类型</em></strong></p>
-</li>
-</ul>
-</li>
-</ul>
-<h2 id="结构作为参数和返回值"><a href="#结构作为参数和返回值" class="headerlink" title="结构作为参数和返回值"></a>结构作为参数和返回值</h2><ul>
-<li><p>函数可以有结构类型的实际参数和返回值</p>
-</li>
-<li><p>显示结构的成员：</p>
-</li>
-</ul>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">print_part</span><span class="params">(struct part p)</span></span>&#123;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"part number: %d\n"</span>,p.number);</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"part name: %s\n"</span>,p.name);</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"Quantity on hand: %d\n"</span>,p.on_hand);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>调用print_part:</p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">print_part(part1);</span><br></pre></td></tr></table></figure>
-<ul>
-<li>返回part结构，此结构由函数的实际参数构成：<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function">struct part <span class="title">build_part</span><span class="params">(<span class="keyword">int</span> number,<span class="keyword">const</span> <span class="keyword">char</span>* name,<span class="keyword">int</span> on_hand)</span></span>&#123;</span><br><span class="line">    <span class="class"><span class="keyword">struct</span> <span class="title">part</span> <span class="title">p</span>;</span></span><br><span class="line"></span><br><span class="line">    p.number = number;</span><br><span class="line">    <span class="built_in">strcpy</span>(p.name,name);</span><br><span class="line">    p.on_hand = on_hand;</span><br><span class="line">    <span class="keyword">return</span> p;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
-</ul>
-<p><strong><em>注意build_part的形式参数名和结构part的成员名相同是合法的，因为结构已经拥有自己的名字空间</em></strong></p>
-<p>调用build_part：</p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">part1 = build_part(<span class="number">529</span>,<span class="string">"Disk Drive"</span>,<span class="number">10</span>);</span><br></pre></td></tr></table></figure>
-
-<h1 id="嵌套的数组和结构"><a href="#嵌套的数组和结构" class="headerlink" title="嵌套的数组和结构"></a>嵌套的数组和结构</h1><h2 id="嵌套的结构"><a href="#嵌套的结构" class="headerlink" title="嵌套的结构"></a>嵌套的结构</h2><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">person_name</span> &#123;</span></span><br><span class="line">    <span class="keyword">char</span> first[FIRST_NAME_LEN+<span class="number">1</span>];</span><br><span class="line">    <span class="keyword">char</span> middle_initial;</span><br><span class="line">    <span class="keyword">char</span> last[LAST_NAME_LEN+<span class="number">1</span>];</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-<p>可以用结构person_name作为更大结构的一部分内容：</p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">student</span> &#123;</span></span><br><span class="line">    <span class="class"><span class="keyword">struct</span> <span class="title">person_name</span> <span class="title">name</span>;</span></span><br><span class="line">    <span class="keyword">int</span> id,age;</span><br><span class="line">    <span class="keyword">char</span> sex;</span><br><span class="line">&#125; student1,student2;</span><br></pre></td></tr></table></figure>
-<ul>
-<li>访问student1的名、中名或姓需要两次应用.运算符：</li>
-</ul>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">strcpy</span>(student1.name.first,<span class="string">"Fred"</span>);</span><br></pre></td></tr></table></figure>
-<ul>
-<li><p>使name成为结构成员（而不是把first、middle_initial和last作为student结构的成员）的好处之一就是把名字作为数据单元来处理更容易。</p>
-</li>
-<li><p>例如：如果打算编写函数来显示名字，只需要传递一个实参(person_name)结构而不是三个实参：</p>
-</li>
-</ul>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">display_name(student1.name);</span><br></pre></td></tr></table></figure>
-<ul>
-<li>同样地，把信息从结构person_name复制给结构student的成员name将只需要一次而不是三次赋值：<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">person_name</span>  <span class="title">new_name</span>;</span></span><br><span class="line">……</span><br><span class="line">student1.name = new_name;</span><br></pre></td></tr></table></figure>
-<h2 id="结构数组"><a href="#结构数组" class="headerlink" title="结构数组"></a>结构数组</h2><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">part</span> <span class="title">inventory</span>[100];</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//访问数组中的某个零件，使用下标方式</span></span><br><span class="line">print_part(inventory[i]);</span><br><span class="line"></span><br><span class="line"><span class="comment">//给inventory[i]中的成员number赋值</span></span><br><span class="line">inventory[i].number = <span class="number">883</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">//访问零件中的单个字符，要求先取下标(选择特定的零件)，然后选择成员(选择成员name)，再取下标(选择零件中的字符)</span></span><br><span class="line">inventory[i].name[<span class="number">0</span>] = <span class="string">'\0'</span>;</span><br></pre></td></tr></table></figure>
-<h2 id="结构数组的初始化"><a href="#结构数组的初始化" class="headerlink" title="结构数组的初始化"></a>结构数组的初始化</h2><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">dialing_code</span> &#123;</span></span><br><span class="line">    <span class="keyword">char</span> *country; <span class="comment">//country是指针而不是字符数组</span></span><br><span class="line">    <span class="keyword">int</span> code;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> <span class="class"><span class="keyword">struct</span> <span class="title">dialing_code</span> <span class="title">country_codes</span>[] =</span></span><br><span class="line"><span class="class">&#123;</span>&#123;<span class="string">"Argentina"</span>,  <span class="number">54</span>&#125;,&#123;<span class="string">"Italy"</span>,   <span class="number">39</span>&#125;,</span><br><span class="line"> &#123;<span class="string">"Russia"</span>,     <span class="number">7</span>&#125;,&#123;<span class="string">"Korea"</span>,    <span class="number">82</span>&#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">//C99</span></span><br><span class="line"><span class="comment">//C99的指定初始化允许每一项具有多个指示符</span></span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">part</span> <span class="title">inventory</span>[100] = </span></span><br><span class="line"><span class="class">    &#123;</span>[<span class="number">0</span>].number = <span class="number">528</span>,[<span class="number">0</span>].on_hand = <span class="number">10</span>,[<span class="number">0</span>].name = <span class="string">'\0'</span>&#125;;</span><br></pre></td></tr></table></figure>
+        
 
 
-
-
-</li>
-</ul>
-
-      
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2020/07/28/C%E8%AF%AD%E8%A8%80%E7%BB%93%E6%9E%84%E5%AD%A6%E4%B9%A0/" rel="prev" title="C语言结构学习">
+      <i class="fa fa-chevron-left"></i> C语言结构学习
+    </a></div>
+      <div class="post-nav-item"></div>
     </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
       </footer>
+    
   </article>
   
   
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="http://shereunice.github.io/2020/07/20/sprintf/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="SHEReunice">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hexo">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/07/20/sprintf/" class="post-title-link" itemprop="url">sprintf</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-              
-
-              <time title="Created: 2020-07-20 20:02:58 / Modified: 20:54:19" itemprop="dateCreated datePublished" datetime="2020-07-20T20:02:58+08:00">2020-07-20</time>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <hr>
-<p>title:sprintf</p>
-<hr>
-<h1 id="sprintf"><a href="#sprintf" class="headerlink" title="sprintf"></a>sprintf</h1><h2 id="来自于APIC语言："><a href="#来自于APIC语言：" class="headerlink" title="来自于APIC语言："></a>来自于API<a href="https://www.apiref.com/c-zh/index.htm" target="_blank" rel="noopener">C语言</a>：</h2><h3 id="功-能"><a href="#功-能" class="headerlink" title="功 能:"></a>功 能:</h3><p>送格式化输出到字符串</p>
-<h3 id="用-法"><a href="#用-法" class="headerlink" title="用 法:"></a>用 法:</h3><p>#include &lt;stdio.h&gt;</p>
-<p>​    int sprintf(char *string, char *farmat [,argument,…]);</p>
-<h3 id="程序例"><a href="#程序例" class="headerlink" title="程序例:"></a>程序例:</h3><p>#include &lt;stdio.h&gt;<br>#include &lt;math.h&gt;</p>
-<p>int main(void)<br>{<br>  char buffer[80];</p>
-<p>  sprintf(buffer, “An approximation of Pi is %f\n”, M_PI);<br>  puts(buffer);<br>  return 0;<br>}</p>
-<h3 id="例题：leetcode257-二叉树的所有路径"><a href="#例题：leetcode257-二叉树的所有路径" class="headerlink" title="例题：leetcode257. 二叉树的所有路径"></a>例题：leetcode<a href="https://leetcode-cn.com/problems/binary-tree-paths/" target="_blank" rel="noopener">257. 二叉树的所有路径</a></h3><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">给定一个二叉树，返回所有从根节点到叶子节点的路径。</span><br><span class="line"></span><br><span class="line">说明: 叶子节点是指没有子节点的节点。</span><br><span class="line"></span><br><span class="line">示例:</span><br><span class="line"></span><br><span class="line">输入:</span><br><span class="line"></span><br><span class="line">   <span class="number">1</span></span><br><span class="line"> /   \</span><br><span class="line"><span class="number">2</span>     <span class="number">3</span></span><br><span class="line"> \</span><br><span class="line">  <span class="number">5</span></span><br><span class="line"></span><br><span class="line">输出: [<span class="string">"1-&gt;2-&gt;5"</span>, <span class="string">"1-&gt;3"</span>]</span><br></pre></td></tr></table></figure>
-
-
-
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Definition for a binary tree node.</span></span><br><span class="line"><span class="comment"> * struct TreeNode &#123;</span></span><br><span class="line"><span class="comment"> *     int val;</span></span><br><span class="line"><span class="comment"> *     struct TreeNode *left;</span></span><br><span class="line"><span class="comment"> *     struct TreeNode *right;</span></span><br><span class="line"><span class="comment"> * &#125;;</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Note: The returned array must be malloced, assume caller calls free().</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">get_path</span><span class="params">(<span class="keyword">char</span> **<span class="built_in">array</span>,struct TreeNode* root,<span class="keyword">int</span> *returnSize,<span class="keyword">int</span> *buf,<span class="keyword">int</span> local)</span></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(root == <span class="literal">NULL</span>)&#123;</span><br><span class="line">        <span class="keyword">return</span> ;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span>(!root-&gt;left &amp;&amp; !root-&gt;right)&#123;</span><br><span class="line">        <span class="comment">//走到叶子节点了，要把路径打印出来</span></span><br><span class="line">        <span class="keyword">char</span> *str = (<span class="keyword">char</span>*)<span class="built_in">malloc</span>(<span class="number">1024</span>);</span><br><span class="line">        <span class="keyword">int</span> len = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>;i &lt; local; i++)&#123;</span><br><span class="line">            len += <span class="built_in">sprintf</span>(str + len,<span class="string">"%d-&gt;"</span>,buf[i]);<span class="comment">//把节点的数据导入字符串，每次都让指针往后移这么多个位置</span></span><br><span class="line">        &#125;</span><br><span class="line">        <span class="built_in">sprintf</span>(str + len, <span class="string">"%d"</span>,root-&gt;val);<span class="comment">//把叶子节点也放进来，叶子节点没有放到buf那个数组里面</span></span><br><span class="line">        <span class="built_in">array</span>[(*returnSize)++] = str;</span><br><span class="line">    &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">        <span class="comment">//把当前的值写到buf数组里面去，然后层级加一，继续递归找叶子节点</span></span><br><span class="line">        buf[local++] = root-&gt;val;<span class="comment">//把每一个节点存到里面去</span></span><br><span class="line">        get_path(<span class="built_in">array</span>,root-&gt;left,returnSize,buf,local);</span><br><span class="line">        get_path(<span class="built_in">array</span>,root-&gt;right,returnSize,buf,local);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">char</span> **<span class="title">binaryTreePaths</span><span class="params">(struct TreeNode*root,<span class="keyword">int</span> *returnSize)</span></span>&#123;</span><br><span class="line">    <span class="keyword">char</span> **ret = (<span class="keyword">char</span> **)<span class="built_in">malloc</span>(<span class="number">1024</span> * <span class="keyword">sizeof</span>(<span class="keyword">char</span>*));</span><br><span class="line">    *returnSize = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">int</span> buf[<span class="number">1024</span>] = &#123;<span class="number">0</span>&#125;;</span><br><span class="line">    get_path(ret,root,returnSize,buf,<span class="number">0</span>);</span><br><span class="line">    <span class="keyword">return</span> ret;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
-
-<h2 id="sprinf函数的补充"><a href="#sprinf函数的补充" class="headerlink" title="sprinf函数的补充"></a>sprinf函数的补充</h2><ol>
-<li><p>sprintf的作用是将一个格式化的字符串输出到一个目的字符串中，而printf是将一个格式化的字符串输出到屏幕。</p>
-</li>
-<li><p>sprintf的第一个参数是目的字符串，如果不指定这个参数，执行过程中出现 “该程序产生非法操作,即将被关闭….”的提示。</p>
-</li>
-<li><p>因为C语言在进行字符串操作时不检查字符串的空间是否够大，所以可能会出现数组越界而导致程序崩溃的问题。即使碰巧，程序没有出错，也不要这么用，因为早晚会出错。所以一定要在调用sprintf之前分配足够大的空间给buf。</p>
-</li>
-<li><p>sprintf 是个变参函数，定义如下：</p>
-<p>​    int sprintf( char *buffer, const char *format [, argument] … );</p>
-<p>​    除了前两个参数类型固定外，后面可以接任意多个参数。而它的精华，显然就在第二个参数：格式化字符串上。</p>
-</li>
-<li><p>printf 和sprintf 都使用格式化字符串来指定串的格式，在格式串内部使用一些以“%”开头的格式说明符（format specifications）来占据一个位置，在后边的变参列表中提供相应的变量，最终函数就会用相应位置的变量来替代那个说明符，产生一个调用者想要的字符串：</p>
-<p>​    格式化数字字符串</p>
-</li>
-<li><p>sprintf 最常见的应用之一是把整数打印到字符串中，所以，spritnf 在大多数场合可以替代itoa。如：</p>
-<ul>
-<li>1&gt;把整数123 打印成一个字符串保存在s 中。</li>
-</ul>
-<p>​        sprintf(s, “%d”, 123); //产生”123”</p>
-</li>
-</ol>
-<ul>
-<li><p>2&gt;可以指定宽度，不足的左边补空格：</p>
-<p>​        sprintf(s, “%8d%8d”, 123, 4567); //产生：” 123 4567”</p>
-</li>
-</ul>
-<ul>
-<li><p>3&gt;当然也可以左对齐：</p>
-<p>​        sprintf(s, “%-8d%8d”, 123, 4567); //产生：”123 4567”</p>
-</li>
-</ul>
-<ul>
-<li><p>4&gt;也可以按照16 进制打印：</p>
-<p>​    sprintf(s, “%8x”, 4567); //小写16 进制，宽度占8 个位置，右对齐</p>
-<p>​    sprintf(s, “%-8X”, 4568); //大写16 进制，宽度占8 个位置，左对齐</p>
-</li>
-</ul>
-<p>   ​    这样，一个整数的16 进制字符串就很容易得到，但我们在打印16 进制内容时，通常想要一种左边补0 的等宽格式，那该怎么做呢？</p>
-<p>   ​    很简单，在表示宽度的数字前面加个0 就可以了。</p>
-<p>   ​        sprintf(s, “%08X”, 4567); //产生：”000011D7”</p>
-<h2 id="使用sprintf-的常见问题"><a href="#使用sprintf-的常见问题" class="headerlink" title="使用sprintf 的常见问题"></a><strong>使用sprintf 的常见问题</strong></h2><ul>
-<li><p>sprintf 是个变参函数，使用时经常出问题，而且只要出问题通常就是能导致程序崩溃的内存访问错误，但好在由sprintf 误用导致的问题虽然严重，却很容易找出，无非就是那么几种情况，通常用眼睛再把出错的代码多看几眼就看出来了</p>
-</li>
-<li><p>1&gt;&gt;缓冲区溢出</p>
-<p>​        第一个参数的长度太短了，没的说，给个大点的地方吧。当然也可能是后面的参数的问题，建议变参对应一定要细心，而打印字符串时，尽量使用”%.ns”的形式指定最大字符数。</p>
-</li>
-<li><p>2&gt;&gt;忘记了第一个参数</p>
-<p>​    低级得不能再低级问题，用printf 用得太惯了。</p>
-</li>
-<li><p>3&gt;&gt;变参对应出问题</p>
-<p>​        通常是忘记了提供对应某个格式符的变参，导致以后的参数统统错位，检查检查吧。尤其是对应”*”的那些参数，都提供了吗？不要把一个整数对应一个”%s”。</p>
-</li>
-</ul>
-<p>==*<u>如果用hexo new post创建的新的md文件，里面有title、date、tags，不知道为什么要把date删掉，博客才可以成功上传，有点迷</u>*==</p>
-<h1 id="怎么上传博客"><a href="#怎么上传博客" class="headerlink" title="怎么上传博客"></a>怎么上传博客</h1><p>在/e/blog/euniceBlog/source/_posts文件夹目录下，右键选择Git Bash Here,</p>
-<p>输入 ==hexo g== (完整命令为==hexo generate==)，用于生成静态文件</p>
-<p>然后 输入 ==hexo s==(完整命令为==hexo server==)，用于启动服务器，主要用来本地预览；</p>
-<p>完成后 打开浏览器输入 ==localhost:4000==，就多了刚写的那篇博客</p>
-<p><strong><em>==最后输入hexo d(hexo deploy)，用于将本地文件发布到github等git仓库上==</em></strong>(<strong>github/git还不太会使……</strong>)</p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="http://shereunice.github.io/2020/06/22/hello-world/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="SHEReunice">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hexo">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/06/22/hello-world/" class="post-title-link" itemprop="url">Hello World</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2020-06-22 23:54:01" itemprop="dateCreated datePublished" datetime="2020-06-22T23:54:01+08:00">2020-06-22</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2020-07-20 20:53:57" itemprop="dateModified" datetime="2020-07-20T20:53:57+08:00">2020-07-20</time>
-              </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
-<h2 id="Hello-Hexo"><a href="#Hello-Hexo" class="headerlink" title="Hello Hexo"></a>Hello Hexo</h2><h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/one-command-deployment.html" target="_blank" rel="noopener">Deployment</a></p>
-<p>==*<u>如果用hexo new post创建的新的md文件，里面有title、date、tags，不知道为什么要把date删掉，博客才可以成功上传，有点迷</u>*==</p>
-<h1 id="怎么上传博客"><a href="#怎么上传博客" class="headerlink" title="怎么上传博客"></a>怎么上传博客</h1><p>在/e/blog/euniceBlog/source/_posts文件夹目录下，右键选择Git Bash Here,</p>
-<p>输入 ==hexo g== (完整命令为==hexo generate==)，用于生成静态文件</p>
-<p>然后 输入 ==hexo s==(完整命令为==hexo server==)，用于启动服务器，主要用来本地预览；</p>
-<p>完成后 打开浏览器输入 ==localhost:4000==，就多了刚写的那篇博客</p>
-<p><strong><em>==最后输入hexo d(hexo deploy)，用于将本地文件发布到github等git仓库上==</em></strong>(<strong>github/git还不太会使……</strong>)</p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-
   
 
 
@@ -696,6 +339,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#实验一线性表练习"><span class="nav-number">1.</span> <span class="nav-text">实验一线性表练习</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1、实现顺序表的初始化、在指定位置插入和删除元素"><span class="nav-number">1.1.</span> <span class="nav-text">1、实现顺序表的初始化、在指定位置插入和删除元素</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1、初始化顺序表"><span class="nav-number">1.1.1.</span> <span class="nav-text">1、初始化顺序表</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2、插入数据元素ListInsert-L-i-e"><span class="nav-number">1.1.2.</span> <span class="nav-text">2、插入数据元素ListInsert(L,i,e)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3、删除数据元素"><span class="nav-number">1.1.3.</span> <span class="nav-text">3、删除数据元素</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2、实现单链表的初始化、在指定位置插入和删除-元素"><span class="nav-number">1.2.</span> <span class="nav-text">2、实现单链表的初始化、在指定位置插入和删除 元素</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1、初始化线性表InitList-L"><span class="nav-number">1.2.1.</span> <span class="nav-text">1、初始化线性表InitList(L)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2、插入数据元素ListInsert-amp-L-i-e"><span class="nav-number">1.2.2.</span> <span class="nav-text">2、插入数据元素ListInsert(&amp;L,i,e)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3、删除数据元素ListDelete-amp-L-i-amp-e"><span class="nav-number">1.2.3.</span> <span class="nav-text">3、删除数据元素ListDelete(&amp;L,i,&amp;e)</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3、给定的2个有序线性链表的合并（合并到1个新-的链表中以及合并到其中的1个链表中两种方式）"><span class="nav-number">1.3.</span> <span class="nav-text">3、给定的2个有序线性链表的合并（合并到1个新 的链表中以及合并到其中的1个链表中两种方式）</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1、合并到1个新的链表"><span class="nav-number">1.3.1.</span> <span class="nav-text">1、合并到1个新的链表</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2、合并到其中一个链表"><span class="nav-number">1.3.2.</span> <span class="nav-text">2、合并到其中一个链表</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4、实现双向链表的初始化、在指定位置插入和删-除元素。"><span class="nav-number">1.4.</span> <span class="nav-text">4、实现双向链表的初始化、在指定位置插入和删 除元素。</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1、初始化双链表"><span class="nav-number">1.4.1.</span> <span class="nav-text">1、初始化双链表</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2、插入元素"><span class="nav-number">1.4.2.</span> <span class="nav-text">2、插入元素</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3、删除元素"><span class="nav-number">1.4.3.</span> <span class="nav-text">3、删除元素</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#实验二、栈、队列和串的练习"><span class="nav-number">2.</span> <span class="nav-text">实验二、栈、队列和串的练习</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1、实现顺序栈的初始化、PUSH、POP等操-作；"><span class="nav-number">2.1.</span> <span class="nav-text">1、实现顺序栈的初始化、PUSH、POP等操 作；</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1、顺序栈的初始化"><span class="nav-number">2.1.1.</span> <span class="nav-text">1、顺序栈的初始化</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2、PUSH"><span class="nav-number">2.1.2.</span> <span class="nav-text">2、PUSH</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3、POP"><span class="nav-number">2.1.3.</span> <span class="nav-text">3、POP</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2、实现队列的插入和删除操作，以及循环-队列的插入和删除操作；"><span class="nav-number">2.2.</span> <span class="nav-text">2、实现队列的插入和删除操作，以及循环 队列的插入和删除操作；</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1、队列的插入和删除操作"><span class="nav-number">2.2.1.</span> <span class="nav-text">1、队列的插入和删除操作</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1、插入"><span class="nav-number">2.2.1.1.</span> <span class="nav-text">1、插入</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2、删除"><span class="nav-number">2.2.1.2.</span> <span class="nav-text">2、删除</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2、循环队列的插入和删除操作"><span class="nav-number">2.2.2.</span> <span class="nav-text">2、循环队列的插入和删除操作</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1、插入-1"><span class="nav-number">2.2.2.1.</span> <span class="nav-text">1、插入</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2、删除-1"><span class="nav-number">2.2.2.2.</span> <span class="nav-text">2、删除</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3、实现常规的串的匹配，求解next函数和-nextval函数，然后实现KMP算法。"><span class="nav-number">2.3.</span> <span class="nav-text">3、实现常规的串的匹配，求解next函数和 nextval函数，然后实现KMP算法。</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1、简单匹配算法，BF算法，采用穷举的思路"><span class="nav-number">2.3.1.</span> <span class="nav-text">1、简单匹配算法，BF算法，采用穷举的思路</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2、求next值的算法："><span class="nav-number">2.3.2.</span> <span class="nav-text">2、求next值的算法：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3、求nextval值的函数："><span class="nav-number">2.3.3.</span> <span class="nav-text">3、求nextval值的函数：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4、KMP算法："><span class="nav-number">2.3.4.</span> <span class="nav-text">4、KMP算法：</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#实验三——树的练习"><span class="nav-number">3.</span> <span class="nav-text">实验三——树的练习</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1、采用二叉链表先序遍历二叉树（递归和非递归-两种方式）；"><span class="nav-number">3.1.</span> <span class="nav-text">1、采用二叉链表先序遍历二叉树（递归和非递归 两种方式）；</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2、采用二叉链表中序遍历二叉树（递归和非递归-两种方式）；"><span class="nav-number">3.2.</span> <span class="nav-text">2、采用二叉链表中序遍历二叉树（递归和非递归 两种方式）；</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3、构造Huffman树，并求其对应的编码。"><span class="nav-number">3.3.</span> <span class="nav-text">3、构造Huffman树，并求其对应的编码。</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#实验四——图的练习"><span class="nav-number">4.</span> <span class="nav-text">实验四——图的练习</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1、实现深度优先遍历图（递归和非递归两种方-式）"><span class="nav-number">4.1.</span> <span class="nav-text">1、实现深度优先遍历图（递归和非递归两种方 式）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2、分别采用普里姆算法和克鲁斯卡尔算法构造最-小生成树"><span class="nav-number">4.2.</span> <span class="nav-text">2、分别采用普里姆算法和克鲁斯卡尔算法构造最 小生成树</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3、给定一个图，求解其关键路径"><span class="nav-number">4.3.</span> <span class="nav-text">3、给定一个图，求解其关键路径</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4、编程实现Dijkstra算法。"><span class="nav-number">4.4.</span> <span class="nav-text">4、编程实现Dijkstra算法。</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#实验五——查找练习"><span class="nav-number">5.</span> <span class="nav-text">实验五——查找练习</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1、输入一线性表，采用顺序查找方式查找一指定-的元素"><span class="nav-number">5.1.</span> <span class="nav-text">1、输入一线性表，采用顺序查找方式查找一指定 的元素</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2、输入一有序表，采用折半查找方式查找一指定-的元素"><span class="nav-number">5.2.</span> <span class="nav-text">2、输入一有序表，采用折半查找方式查找一指定 的元素</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3、在已知的二叉排序树中查找一指定的元素，查-找不成功则将该元素插入到该二叉排序树中，否则-返回true"><span class="nav-number">5.3.</span> <span class="nav-text">3、在已知的二叉排序树中查找一指定的元素，查 找不成功则将该元素插入到该二叉排序树中，否则 返回true</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4、在开放定址哈希表中查找一指定关键字值的元-素，若查找成功则返回true，否则将该元素插入到-该哈希表中"><span class="nav-number">5.4.</span> <span class="nav-text">4、在开放定址哈希表中查找一指定关键字值的元 素，若查找成功则返回true，否则将该元素插入到 该哈希表中</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#实验六——内部排序练习"><span class="nav-number">6.</span> <span class="nav-text">实验六——内部排序练习</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1、实现直接插入排序、2-路插入排序和希-尔排序"><span class="nav-number">6.1.</span> <span class="nav-text">1、实现直接插入排序、2-路插入排序和希 尔排序</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2、实现起泡排序、双向起泡排序和快速排-序"><span class="nav-number">6.2.</span> <span class="nav-text">2、实现起泡排序、双向起泡排序和快速排 序</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3、实现简单选择排序和堆排序"><span class="nav-number">6.3.</span> <span class="nav-text">3、实现简单选择排序和堆排序</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4、实现归并排序。"><span class="nav-number">6.4.</span> <span class="nav-text">4、实现归并排序。</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
