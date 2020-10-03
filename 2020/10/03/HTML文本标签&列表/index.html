@@ -1,0 +1,463 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 4.2.1">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"shereunice.github.io","root":"/","scheme":"Mist","version":"8.0.0-rc.3","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+  </script>
+
+  <meta name="description" content="标签：html文本标签&amp;列表标签一、em和strong 这两个标签都表示一个强调的内容， em主要表示语气上的强调，em在浏览器中默认使用斜体显示 strong表示强调的内容，比em更强烈，默认使用粗体显示 这两个标签可以单独使用，也可以一起使用  123456&lt;p&gt;今天天气&lt;em&gt;针不戳&lt;&#x2F;em&gt;！&lt;&#x2F;p&gt;&lt;p&gt;	&lt;str">
+<meta property="og:type" content="article">
+<meta property="og:title" content="HTML文本标签&amp;列表">
+<meta property="og:url" content="http://shereunice.github.io/2020/10/03/HTML%E6%96%87%E6%9C%AC%E6%A0%87%E7%AD%BE&%E5%88%97%E8%A1%A8/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="标签：html文本标签&amp;列表标签一、em和strong 这两个标签都表示一个强调的内容， em主要表示语气上的强调，em在浏览器中默认使用斜体显示 strong表示强调的内容，比em更强烈，默认使用粗体显示 这两个标签可以单独使用，也可以一起使用  123456&lt;p&gt;今天天气&lt;em&gt;针不戳&lt;&#x2F;em&gt;！&lt;&#x2F;p&gt;&lt;p&gt;	&lt;str">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20201002184210540.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2N5bF9jc2RuXzE=,size_16,color_FFFFFF,t_70#pic_center">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20201002203917288.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2N5bF9jc2RuXzE=,size_16,color_FFFFFF,t_70#pic_center">
+<meta property="article:published_time" content="2020-10-03T10:59:03.000Z">
+<meta property="article:modified_time" content="2020-10-03T13:32:02.296Z">
+<meta property="article:author" content="SHEReunice">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://img-blog.csdnimg.cn/20201002184210540.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2N5bF9jc2RuXzE=,size_16,color_FFFFFF,t_70#pic_center">
+
+<link rel="canonical" href="http://shereunice.github.io/2020/10/03/HTML%E6%96%87%E6%9C%AC%E6%A0%87%E7%AD%BE&%E5%88%97%E8%A1%A8/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'en'
+  };
+</script>
+
+  <title>HTML文本标签&列表 | Hexo</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar">
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">Hexo</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://shereunice.github.io/2020/10/03/HTML%E6%96%87%E6%9C%AC%E6%A0%87%E7%AD%BE&%E5%88%97%E8%A1%A8/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="SHEReunice">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          HTML文本标签&列表
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+              
+
+              <time title="Created: 2020-10-03 18:59:03 / Modified: 21:32:02" itemprop="dateCreated datePublished" datetime="2020-10-03T18:59:03+08:00">2020-10-03</time>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h2 id="标签：html文本标签-amp-列表标签"><a href="#标签：html文本标签-amp-列表标签" class="headerlink" title="标签：html文本标签&amp;列表标签"></a>标签：html文本标签&amp;列表标签</h2><h4 id="一、em和strong"><a href="#一、em和strong" class="headerlink" title="一、em和strong"></a>一、em和strong</h4><ul>
+<li>这两个标签都表示一个强调的内容，<br> em主要表示语气上的强调，em在浏览器中默认使用斜体显示<br> strong表示强调的内容，比em更强烈，默认使用粗体显示</li>
+<li>这两个标签可以单独使用，也可以一起使用</li>
+</ul>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">p</span>&gt;</span>今天天气<span class="tag">&lt;<span class="name">em</span>&gt;</span>针不戳<span class="tag">&lt;/<span class="name">em</span>&gt;</span>！<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">p</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">strong</span>&gt;</span></span><br><span class="line">		如果你不认真上课，你就gg了</span><br><span class="line">	<span class="tag">&lt;/<span class="name">strong</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="二、i和b标签"><a href="#二、i和b标签" class="headerlink" title="二、i和b标签"></a>二、i和b标签</h4><ul>
+<li>i标签中的内容会以斜体显示<br>b标签中的那内容会以加粗显示</li>
+<li>h5规范中规定，对于不需要着重的内容，而是单纯的加粗或者斜体，就可以使用b和i标签</li>
+</ul>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">p</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">i</span>&gt;</span></span><br><span class="line">		我是i标签中的内容</span><br><span class="line">	<span class="tag">&lt;/<span class="name">i</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">br</span> /&gt;</span><span class="tag">&lt;<span class="name">br</span> /&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">b</span>&gt;</span></span><br><span class="line">		我是b标签中的内容</span><br><span class="line">	<span class="tag">&lt;/<span class="name">b</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h4 id="三、small标签"><a href="#三、small标签" class="headerlink" title="三、small标签"></a>三、small标签</h4><ul>
+<li>small标签中的内容会比它的父元素中的文字要小一些</li>
+<li>在h5中使用small标签来表示一些细则一类的内容<br>比如：合同中小字，网站的版权声明都可以放到small</li>
+</ul>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">p</span>&gt;</span></span><br><span class="line">	我是p标签的内容<span class="tag">&lt;<span class="name">samll</span>&gt;</span>我是small标签中的内容<span class="tag">&lt;/<span class="name">samll</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h4 id="四、cite标签"><a href="#四、cite标签" class="headerlink" title="四、cite标签"></a>四、cite标签</h4><ul>
+<li>网页中所有的加书名号的内容都可以使用cite标签，表示参考的内容<br>比如：书名 歌名 话剧名 电影名</li>
+</ul>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">p</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">cite</span>&gt;</span>《论语》<span class="tag">&lt;/<span class="name">cite</span>&gt;</span>是最喜欢的一本书</span><br><span class="line"><span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h4 id="五、q和blockquote标签"><a href="#五、q和blockquote标签" class="headerlink" title="五、q和blockquote标签"></a>五、q和blockquote标签</h4><ul>
+<li><p>q标签表示一个短的引用（行内引用）</p>
+<pre><code>q标签引用的内容，浏览器默认加上引号</code></pre></li>
+<li><p>blockquote标签表示一个长引用（块级引用）(块元素不能放在p里面，可以放div里面)</p>
+</li>
+</ul>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">p</span>&gt;</span></span><br><span class="line">	子曰：<span class="tag">&lt;<span class="name">q</span>&gt;</span>学而时习之<span class="tag">&lt;/<span class="name">q</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span>&gt;</span></span><br><span class="line">	子曰：</span><br><span class="line">		<span class="tag">&lt;<span class="name">blockquote</span>&gt;</span></span><br><span class="line">			不亦乐乎</span><br><span class="line">		<span class="tag">&lt;/<span class="name">blockquote</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h4 id="六、sup和sub标签"><a href="#六、sup和sub标签" class="headerlink" title="六、sup和sub标签"></a>六、sup和sub标签</h4><ul>
+<li>使用sup标签来设置上标</li>
+<li>sub标签表示一个下标</li>
+</ul>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">p</span>&gt;</span>2<span class="tag">&lt;<span class="name">sup</span>&gt;</span>2<span class="tag">&lt;/<span class="name">sup</span>&gt;</span><span class="tag">&lt;/<span class="name">sub</span>&gt;</span><span class="tag">&lt;/<span class="name">p</span>&gt;</span> </span><br><span class="line"><span class="tag">&lt;<span class="name">p</span>&gt;</span>赵薇<span class="tag">&lt;<span class="name">sup</span>&gt;</span><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"#"</span>&gt;</span>【1】<span class="tag">&lt;/<span class="name">a</span>&gt;</span><span class="tag">&lt;/<span class="name">sup</span>&gt;</span><span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">p</span>&gt;</span>H<span class="tag">&lt;<span class="name">sub</span>&gt;</span>2<span class="tag">&lt;/<span class="name">sub</span>&gt;</span>O<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h4 id="七、del和ins标签"><a href="#七、del和ins标签" class="headerlink" title="七、del和ins标签"></a>七、del和ins标签</h4><ul>
+<li><p>使用del标签来表示一个删除的内容</p>
+<pre><code>del标签中的内容，会自动添加删除线</code></pre></li>
+<li><p>ins表示一个插入内容</p>
+<pre><code>ins中的内容，会自动添加下划线</code></pre><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">p</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">del</span>&gt;</span>17.75<span class="tag">&lt;/<span class="name">del</span>&gt;</span><span class="tag">&lt;<span class="name">br</span> /&gt;</span></span><br><span class="line">	15.54<span class="tag">&lt;<span class="name">br</span> /&gt;</span>	</span><br><span class="line"><span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">p</span>&gt;</span></span><br><span class="line">	好<span class="tag">&lt;<span class="name">ins</span>&gt;</span>haoa<span class="tag">&lt;/<span class="name">ins</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h4 id="八、pre和code标签"><a href="#八、pre和code标签" class="headerlink" title="八、pre和code标签"></a>八、pre和code标签</h4><p>需要在页面中编写一些代码：</p>
+</li>
+</ul>
+<ul>
+<li><p>pre是一个预格式标签，（有多少空格都保留）会将代码中的格式保存，不会忽略多个空格</p>
+</li>
+<li><p>code专门用来表示代码</p>
+</li>
+</ul>
+<ul>
+<li>我们一般结合使用pre和code来表示一段代码</li>
+</ul>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">pre</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">code</span>&gt;</span></span><br><span class="line">window.onload = function()&#123;</span><br><span class="line">	alert("hello");</span><br><span class="line">&#125;;			</span><br><span class="line">	<span class="tag">&lt;/<span class="name">code</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">pre</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h3 id="文本标签的结果："><a href="#文本标签的结果：" class="headerlink" title="文本标签的结果："></a>文本标签的结果：</h3><p><img src="https://img-blog.csdnimg.cn/20201002184210540.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2N5bF9jc2RuXzE=,size_16,color_FFFFFF,t_70#pic_center" alt="文本标签的结果"></p>
+<h4 id="九、无序列表"><a href="#九、无序列表" class="headerlink" title="九、无序列表"></a>九、无序列表</h4><ul>
+<li><p>无序列表：</p>
+</li>
+<li><p>使用ul标签来创建一个无序列表</p>
+</li>
+<li><p>使用li在ul中创建一个一个的列表项</p>
+<pre><code>一个li就是一个列表项</code></pre></li>
+<li><p>通过type属性可以修改无序列表的项目符号</p>
+</li>
+<li><p>可选值：</p>
+<pre><code>disc,默认值，实心的远点
+square,实心的方块
+circle,空心的圆</code></pre></li>
+<li><p>注意，默认的项目符号我们一般都不使用</p>
+</li>
+<li><p>如果需要设置项目符号，则可以采用为li设置背景图片的方式来设置</p>
+</li>
+<li><p>ul和li都是块元素</p>
+</li>
+</ul>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">ul</span> <span class="attr">type</span>=<span class="string">"disc"</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">li</span>&gt;</span>大雾<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">li</span>&gt;</span>计组<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">li</span>&gt;</span>汇编<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">li</span>&gt;</span>离散<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">ul</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>可以用CSS去掉项目符号：</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&lt;style type="text/css"&gt;</span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">去掉项目符号</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line">	<span class="selector-tag">ul</span>&#123;</span><br><span class="line">		<span class="attribute">list-style</span>:none;</span><br><span class="line">	&#125;</span><br><span class="line">&lt;/style&gt;</span><br></pre></td></tr></table></figure>
+
+
+
+<blockquote>
+<p>列表就相当于去超市购物的清单，<br>            在HTML也可以创建列表，在网页中一共有三种列表：<br>                1.无序列表<br>                2.有序列表<br>                3.定义列表</p>
+</blockquote>
+<h4 id="十、有序列表"><a href="#十、有序列表" class="headerlink" title="十、有序列表"></a>十、有序列表</h4><ul>
+<li><p>有序列表和无序列表类似，只不过它用ol代替ul</p>
+</li>
+<li><p>有序列表使用有序的序号作为项目符号</p>
+</li>
+<li><p>type属性，可以指定序号的类型</p>
+</li>
+<li><p>可选值：</p>
+<pre><code>  1，默认值，使用阿拉伯数字
+a/A 采用小写或大写字母作为序号
+i/I 采用小写或大写的罗马数字作为序号</code></pre></li>
+<li><p>ol也是块元素</p>
+</li>
+</ul>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">ol</span> <span class="attr">type</span>=<span class="string">"1"</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">li</span>&gt;</span>大雾<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">li</span>&gt;</span>计组<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">li</span>&gt;</span>汇编<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">li</span>&gt;</span>离散<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">ol</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>==<strong><em>列表之间都是可以互相嵌套，可以在无序列表中放个有序列表，也可以在有序列表中放一个无序列表</em></strong>==</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">p</span>&gt;</span>菜谱<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">ul</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;<span class="name">li</span>&gt;</span></span><br><span class="line">				鱼香肉丝</span><br><span class="line">				<span class="tag">&lt;<span class="name">ol</span>&gt;</span></span><br><span class="line">					<span class="tag">&lt;<span class="name">li</span>&gt;</span>鱼<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">					<span class="tag">&lt;<span class="name">li</span>&gt;</span>香<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">					<span class="tag">&lt;<span class="name">li</span>&gt;</span>肉丝<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">				<span class="tag">&lt;/<span class="name">ol</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;<span class="name">li</span>&gt;</span>宫爆鸡丁<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;<span class="name">ul</span>&gt;</span></span><br><span class="line">				<span class="tag">&lt;<span class="name">li</span>&gt;</span>宫保<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">				<span class="tag">&lt;<span class="name">li</span>&gt;</span>鸡丁<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;/<span class="name">ul</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;<span class="name">li</span>&gt;</span>青椒肉丝<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;/<span class="name">ul</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h4 id="十一、定义列表"><a href="#十一、定义列表" class="headerlink" title="十一、定义列表"></a>十一、定义列表</h4><ul>
+<li><p>定义列表用来对一些词汇或内容进行定义            </p>
+</li>
+<li><p>使用dl来创建一个定义列表</p>
+</li>
+<li><p>dl中有两个子标签</p>
+<pre><code>dt：被定义的内容
+dd：对定义内容的描述</code></pre><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">dl</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">dt</span>&gt;</span>武松<span class="tag">&lt;/<span class="name">dt</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">dd</span>&gt;</span>景阳冈打虎英雄，战斗力99<span class="tag">&lt;/<span class="name">dd</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">dd</span>&gt;</span>后打死西门庆，投奔梁山<span class="tag">&lt;/<span class="name">dd</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">dt</span>&gt;</span>武大<span class="tag">&lt;/<span class="name">dt</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">dd</span>&gt;</span>著名餐饮企业家，战斗力0<span class="tag">&lt;/<span class="name">dd</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dl</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h3 id="列表的结果："><a href="#列表的结果：" class="headerlink" title="列表的结果："></a>列表的结果：</h3><p><img src="https://img-blog.csdnimg.cn/20201002203917288.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2N5bF9jc2RuXzE=,size_16,color_FFFFFF,t_70#pic_center" alt="列表的结果"></p>
+</li>
+</ul>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2020/10/03/CSS%E7%9B%92%E5%AD%90%E6%A8%A1%E5%9E%8B/" rel="prev" title="CSS盒子模型">
+      <i class="fa fa-chevron-left"></i> CSS盒子模型
+    </a></div>
+      <div class="post-nav-item"></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#标签：html文本标签-amp-列表标签"><span class="nav-number">1.</span> <span class="nav-text">标签：html文本标签&amp;列表标签</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#一、em和strong"><span class="nav-number">1.0.1.</span> <span class="nav-text">一、em和strong</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#二、i和b标签"><span class="nav-number">1.0.2.</span> <span class="nav-text">二、i和b标签</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#三、small标签"><span class="nav-number">1.0.3.</span> <span class="nav-text">三、small标签</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#四、cite标签"><span class="nav-number">1.0.4.</span> <span class="nav-text">四、cite标签</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#五、q和blockquote标签"><span class="nav-number">1.0.5.</span> <span class="nav-text">五、q和blockquote标签</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#六、sup和sub标签"><span class="nav-number">1.0.6.</span> <span class="nav-text">六、sup和sub标签</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#七、del和ins标签"><span class="nav-number">1.0.7.</span> <span class="nav-text">七、del和ins标签</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#八、pre和code标签"><span class="nav-number">1.0.8.</span> <span class="nav-text">八、pre和code标签</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#文本标签的结果："><span class="nav-number">1.1.</span> <span class="nav-text">文本标签的结果：</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#九、无序列表"><span class="nav-number">1.1.1.</span> <span class="nav-text">九、无序列表</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#十、有序列表"><span class="nav-number">1.1.2.</span> <span class="nav-text">十、有序列表</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#十一、定义列表"><span class="nav-number">1.1.3.</span> <span class="nav-text">十一、定义列表</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#列表的结果："><span class="nav-number">1.2.</span> <span class="nav-text">列表的结果：</span></a></li></ol></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">SHEReunice</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives">
+          <span class="site-state-item-count">7</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+  </nav>
+</div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">SHEReunice</span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/mist/" class="theme-link" rel="noopener" target="_blank">NexT.Mist</a>
+  </div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/muse.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+</body>
+</html>
