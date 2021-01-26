@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 4.2.1">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"shereunice.github.io","root":"/","scheme":"Mist","version":"8.0.0-rc.3","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+  </script>
+
+  <meta name="description" content="放作业在myGit文件夹下git bash here 1$ cd cs61b  继续 1$ git remote add skeleton https:&#x2F;&#x2F;github.com&#x2F;SHEReunice&#x2F;CS61B.git  next 1$ cd 61B  next 1$ git remote add skeleton https:&#x2F;&#x2F;github.com&#x2F;Be">
+<meta property="og:type" content="article">
+<meta property="og:title" content="CS61B">
+<meta property="og:url" content="http://shereunice.github.io/2021/01/26/CS61B/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="放作业在myGit文件夹下git bash here 1$ cd cs61b  继续 1$ git remote add skeleton https:&#x2F;&#x2F;github.com&#x2F;SHEReunice&#x2F;CS61B.git  next 1$ cd 61B  next 1$ git remote add skeleton https:&#x2F;&#x2F;github.com&#x2F;Be">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2021-01-26T03:36:55.929Z">
+<meta property="article:modified_time" content="2021-01-26T03:36:55.930Z">
+<meta property="article:author" content="SHEReunice">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="http://shereunice.github.io/2021/01/26/CS61B/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'en'
+  };
+</script>
+
+  <title>CS61B | Hexo</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar">
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">Hexo</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://shereunice.github.io/2021/01/26/CS61B/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="SHEReunice">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          CS61B
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2021-01-26 11:36:55" itemprop="dateCreated datePublished" datetime="2021-01-26T11:36:55+08:00">2021-01-26</time>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h3 id="放作业"><a href="#放作业" class="headerlink" title="放作业"></a>放作业</h3><p>在myGit文件夹下git bash here</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ cd cs61b</span><br></pre></td></tr></table></figure>
+
+<p>继续</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git remote add skeleton https:&#x2F;&#x2F;github.com&#x2F;SHEReunice&#x2F;CS61B.git</span><br></pre></td></tr></table></figure>
+
+<p>next</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ cd <span class="number">61B</span></span><br></pre></td></tr></table></figure>
+
+<p>next</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git remote add skeleton https:<span class="comment">//github.com/Berkeley-CS61B/skeleton-sp19.git</span></span><br></pre></td></tr></table></figure>
+
+<p>next</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git remote -v</span><br></pre></td></tr></table></figure>
+
+<p>next</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git pull skeleton master</span><br></pre></td></tr></table></figure>
+
+<p>next</p>
+<p>把我的helloWorld.java放到lab1文件夹里面，然后直接回到CS61B文件夹下的git，</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git add lab1/</span><br></pre></td></tr></table></figure>
+
+<p>next</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git commit -m<span class="string">"lab1"</span></span><br></pre></td></tr></table></figure>
+
+
+
+<p>next </p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git push -f origin master</span><br></pre></td></tr></table></figure>
+
+<p>over~~</p>
+<h3 id="原文：https-sp19-datastructur-es-materials-lab-lab1-lab1"><a href="#原文：https-sp19-datastructur-es-materials-lab-lab1-lab1" class="headerlink" title="原文：https://sp19.datastructur.es/materials/lab/lab1/lab1"></a>原文：<a href="https://sp19.datastructur.es/materials/lab/lab1/lab1" target="_blank" rel="noopener">https://sp19.datastructur.es/materials/lab/lab1/lab1</a></h3><ol>
+<li><p>Clone your <a href="https://github.com/Berkeley-CS61B-Student" target="_blank" rel="noopener">Berkeley-CS61B-Student organization</a> repository.</p>
+<ul>
+<li><p>Navigate to the spot in your folders on your computer that you’d like to start your repository. In the example below, I’m assuming you want all your stuff in a folder named cs61b, but you can pick a different name if you’d like.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ cd cs61b</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>Enter the following command to clone your GitHub repo. Make sure to replace the ==s**==</p>
+<p> with the class id you were given when you registered for your repo.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git clone https:&#x2F;&#x2F;github.com&#x2F;Berkeley-CS61B-Student&#x2F;sp19-s**.git</span><br></pre></td></tr></table></figure>
+
+<p>If you’d like to use SSH instead of HTTPS (and <a href="https://help.github.com/articles/generating-ssh-keys/" target="_blank" rel="noopener">set up your own SSH key</a>), feel free to also do that instead. If you don’t know what any of this means, just use the command above. The advantage of SSH is that you won’t have to type in your GitHub password every time you use your repository.</p>
+</li>
+<li><p>Move into your newly created repo! (Make sure you do this part, or the rest of the steps below will not work correctly.)</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ cd sp19-s**</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+<li><p>Add the <code>skeleton</code> remote repository. You will pull from this remote repository to get starter code for assignments. (Make sure that you are within the newly created repository folder when the continue with these commands.)</p>
+<ul>
+<li><p>Enter the following command to add the==skeleton==remote.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git remote add skeleton https:&#x2F;&#x2F;github.com&#x2F;Berkeley-CS61B&#x2F;skeleton-sp19.git</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>Listing the remotes should now show both the==origin==and==keleton==remotes.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git remote -v</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>If you get an error that says “Not a git repository”, make sure you’re in the <code>sp19-s**</code> directory.</p>
+</li>
+</ul>
+</li>
+</ol>
+<h4 id="Working-on-the-Skeleton"><a href="#Working-on-the-Skeleton" class="headerlink" title="Working on the Skeleton"></a>Working on the Skeleton</h4><ol>
+<li><p>You must now pull from the==skeleton==remote in order to get the starter code for Lab 1. You will also do this when new projects and assignments are released. To do this, use the spookiest command in the whole git toolbox:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git pull skeleton master</span><br></pre></td></tr></table></figure>
+
+<p>What this does is grab all remote files from the repo named <code>skeleton</code> (which is located at <code>https://github.com/Berkeley-CS61B/skeleton-sp19.git</code>) and copies them into your current folder.</p>
+<p>If you get an error similar to “fatal: refusing to merge unrelated histories”, you probably ran GitHub’s suggested commands when you created your repository. To fix this, you can instead run:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git pull --rebase --allow-unrelated-histories skeleton master</span><br></pre></td></tr></table></figure>
+
+<p>this time only.</p>
+</li>
+<li><p>If you list the files in your current directory, you’ll see that there are now two folders: <code>lab1</code> and <code>library-sp19</code>. Look in the <code>library-sp19</code> folder, and you’ll see that it is currently empty and will receive some sweet stuff in the Lab 2 Setup. Don’t delete it. Look in the <code>lab1</code> folder and you’ll see files called <code>LeapYear.java</code> and <code>magic_word.txt</code> that you’ll work with in later parts of this lab.</p>
+</li>
+<li><p>Move the <code>HelloWorld.java</code> and <code>HelloNumbers.java</code> that you previously created into the <code>lab1</code> directory. If you didn’t create <code>HelloNumbers.java</code>, go back and do Exercise 1.1.2 (see part A of this lab).</p>
+</li>
+<li><p>Stage and commit==HelloWorld.java==and==HelloNumbers.java==.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ git add lab1&#x2F;*</span><br><span class="line">$ git commit -m &quot;completed first part of lab1&quot;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>Push these changes to the==master==branch on the==origin==remote repo.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git push origin master</span><br></pre></td></tr></table></figure>
+
+<p>You can verify that this has been successful by viewing your repo on <a href="https://github.com/" target="_blank" rel="noopener">github.com</a>. For example, if your repo were <code>sp19-s42</code>, you’d go to <a href="https://github.com/Berkeley-CS61B-Student/sp19-s42" target="_blank" rel="noopener">https://github.com/Berkeley-CS61B-Student/sp19-s42</a>.</p>
+<p>If you get an error similar to “Updates were rejected because the tip of your current branch is behind its remote counterpart”, and you had to use the “–allow-unrelated-histories” flag in the first step, add the <code>-f</code> (force) flag to your <code>git push</code> command <strong>this time, and this time only</strong>:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git push -f origin master</span><br></pre></td></tr></table></figure></li>
+</ol>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2020/10/03/CSS%E7%9A%84%E6%96%87%E6%9C%AC%E6%A0%BC%E5%BC%8F%E5%8C%96%E9%95%BF%E5%BA%A6%E5%8D%95%E4%BD%8D&%E9%A2%9C%E8%89%B2%E5%8D%95%E4%BD%8D&%E5%AD%97%E4%BD%93%E5%88%86%E7%B1%BB%E5%8F%8A%E6%A0%B7%E5%BC%8F&%E6%96%87%E6%9C%AC%E6%A0%B7%E5%BC%8F/" rel="prev" title="CSS的文本格式化长度单位&颜色单位&字体分类及样式&文本样式">
+      <i class="fa fa-chevron-left"></i> CSS的文本格式化长度单位&颜色单位&字体分类及样式&文本样式
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2021/01/26/%E6%80%8E%E4%B9%88%E4%B8%8A%E4%BC%A0%E5%8D%9A%E5%AE%A2/" rel="next" title="怎么上传博客">
+      怎么上传博客 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#放作业"><span class="nav-number">1.</span> <span class="nav-text">放作业</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#原文：https-sp19-datastructur-es-materials-lab-lab1-lab1"><span class="nav-number">2.</span> <span class="nav-text">原文：https:&#x2F;&#x2F;sp19.datastructur.es&#x2F;materials&#x2F;lab&#x2F;lab1&#x2F;lab1</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Working-on-the-Skeleton"><span class="nav-number">2.1.</span> <span class="nav-text">Working on the Skeleton</span></a></li></ol></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">SHEReunice</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives">
+          <span class="site-state-item-count">10</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+  </nav>
+</div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">SHEReunice</span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/mist/" class="theme-link" rel="noopener" target="_blank">NexT.Mist</a>
+  </div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/muse.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+</body>
+</html>
