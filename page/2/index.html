@@ -127,6 +127,140 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://shereunice.github.io/2020/07/20/sprintf/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="SHEReunice">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/07/20/sprintf/" class="post-title-link" itemprop="url">sprintf</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+              
+
+              <time title="Created: 2020-07-20 20:02:58 / Modified: 20:54:19" itemprop="dateCreated datePublished" datetime="2020-07-20T20:02:58+08:00">2020-07-20</time>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <hr>
+<p>title:sprintf</p>
+<hr>
+<h1 id="sprintf"><a href="#sprintf" class="headerlink" title="sprintf"></a>sprintf</h1><h2 id="来自于APIC语言："><a href="#来自于APIC语言：" class="headerlink" title="来自于APIC语言："></a>来自于API<a href="https://www.apiref.com/c-zh/index.htm" target="_blank" rel="noopener">C语言</a>：</h2><h3 id="功-能"><a href="#功-能" class="headerlink" title="功 能:"></a>功 能:</h3><p>送格式化输出到字符串</p>
+<h3 id="用-法"><a href="#用-法" class="headerlink" title="用 法:"></a>用 法:</h3><p>#include &lt;stdio.h&gt;</p>
+<p>​    int sprintf(char *string, char *farmat [,argument,…]);</p>
+<h3 id="程序例"><a href="#程序例" class="headerlink" title="程序例:"></a>程序例:</h3><p>#include &lt;stdio.h&gt;<br>#include &lt;math.h&gt;</p>
+<p>int main(void)<br>{<br>  char buffer[80];</p>
+<p>  sprintf(buffer, “An approximation of Pi is %f\n”, M_PI);<br>  puts(buffer);<br>  return 0;<br>}</p>
+<h3 id="例题：leetcode257-二叉树的所有路径"><a href="#例题：leetcode257-二叉树的所有路径" class="headerlink" title="例题：leetcode257. 二叉树的所有路径"></a>例题：leetcode<a href="https://leetcode-cn.com/problems/binary-tree-paths/" target="_blank" rel="noopener">257. 二叉树的所有路径</a></h3><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">给定一个二叉树，返回所有从根节点到叶子节点的路径。</span><br><span class="line"></span><br><span class="line">说明: 叶子节点是指没有子节点的节点。</span><br><span class="line"></span><br><span class="line">示例:</span><br><span class="line"></span><br><span class="line">输入:</span><br><span class="line"></span><br><span class="line">   <span class="number">1</span></span><br><span class="line"> /   \</span><br><span class="line"><span class="number">2</span>     <span class="number">3</span></span><br><span class="line"> \</span><br><span class="line">  <span class="number">5</span></span><br><span class="line"></span><br><span class="line">输出: [<span class="string">"1-&gt;2-&gt;5"</span>, <span class="string">"1-&gt;3"</span>]</span><br></pre></td></tr></table></figure>
+
+
+
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Definition for a binary tree node.</span></span><br><span class="line"><span class="comment"> * struct TreeNode &#123;</span></span><br><span class="line"><span class="comment"> *     int val;</span></span><br><span class="line"><span class="comment"> *     struct TreeNode *left;</span></span><br><span class="line"><span class="comment"> *     struct TreeNode *right;</span></span><br><span class="line"><span class="comment"> * &#125;;</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Note: The returned array must be malloced, assume caller calls free().</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">get_path</span><span class="params">(<span class="keyword">char</span> **<span class="built_in">array</span>,struct TreeNode* root,<span class="keyword">int</span> *returnSize,<span class="keyword">int</span> *buf,<span class="keyword">int</span> local)</span></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(root == <span class="literal">NULL</span>)&#123;</span><br><span class="line">        <span class="keyword">return</span> ;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span>(!root-&gt;left &amp;&amp; !root-&gt;right)&#123;</span><br><span class="line">        <span class="comment">//走到叶子节点了，要把路径打印出来</span></span><br><span class="line">        <span class="keyword">char</span> *str = (<span class="keyword">char</span>*)<span class="built_in">malloc</span>(<span class="number">1024</span>);</span><br><span class="line">        <span class="keyword">int</span> len = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>;i &lt; local; i++)&#123;</span><br><span class="line">            len += <span class="built_in">sprintf</span>(str + len,<span class="string">"%d-&gt;"</span>,buf[i]);<span class="comment">//把节点的数据导入字符串，每次都让指针往后移这么多个位置</span></span><br><span class="line">        &#125;</span><br><span class="line">        <span class="built_in">sprintf</span>(str + len, <span class="string">"%d"</span>,root-&gt;val);<span class="comment">//把叶子节点也放进来，叶子节点没有放到buf那个数组里面</span></span><br><span class="line">        <span class="built_in">array</span>[(*returnSize)++] = str;</span><br><span class="line">    &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">        <span class="comment">//把当前的值写到buf数组里面去，然后层级加一，继续递归找叶子节点</span></span><br><span class="line">        buf[local++] = root-&gt;val;<span class="comment">//把每一个节点存到里面去</span></span><br><span class="line">        get_path(<span class="built_in">array</span>,root-&gt;left,returnSize,buf,local);</span><br><span class="line">        get_path(<span class="built_in">array</span>,root-&gt;right,returnSize,buf,local);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">char</span> **<span class="title">binaryTreePaths</span><span class="params">(struct TreeNode*root,<span class="keyword">int</span> *returnSize)</span></span>&#123;</span><br><span class="line">    <span class="keyword">char</span> **ret = (<span class="keyword">char</span> **)<span class="built_in">malloc</span>(<span class="number">1024</span> * <span class="keyword">sizeof</span>(<span class="keyword">char</span>*));</span><br><span class="line">    *returnSize = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">int</span> buf[<span class="number">1024</span>] = &#123;<span class="number">0</span>&#125;;</span><br><span class="line">    get_path(ret,root,returnSize,buf,<span class="number">0</span>);</span><br><span class="line">    <span class="keyword">return</span> ret;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="sprinf函数的补充"><a href="#sprinf函数的补充" class="headerlink" title="sprinf函数的补充"></a>sprinf函数的补充</h2><ol>
+<li><p>sprintf的作用是将一个格式化的字符串输出到一个目的字符串中，而printf是将一个格式化的字符串输出到屏幕。</p>
+</li>
+<li><p>sprintf的第一个参数是目的字符串，如果不指定这个参数，执行过程中出现 “该程序产生非法操作,即将被关闭….”的提示。</p>
+</li>
+<li><p>因为C语言在进行字符串操作时不检查字符串的空间是否够大，所以可能会出现数组越界而导致程序崩溃的问题。即使碰巧，程序没有出错，也不要这么用，因为早晚会出错。所以一定要在调用sprintf之前分配足够大的空间给buf。</p>
+</li>
+<li><p>sprintf 是个变参函数，定义如下：</p>
+<p>​    int sprintf( char *buffer, const char *format [, argument] … );</p>
+<p>​    除了前两个参数类型固定外，后面可以接任意多个参数。而它的精华，显然就在第二个参数：格式化字符串上。</p>
+</li>
+<li><p>printf 和sprintf 都使用格式化字符串来指定串的格式，在格式串内部使用一些以“%”开头的格式说明符（format specifications）来占据一个位置，在后边的变参列表中提供相应的变量，最终函数就会用相应位置的变量来替代那个说明符，产生一个调用者想要的字符串：</p>
+<p>​    格式化数字字符串</p>
+</li>
+<li><p>sprintf 最常见的应用之一是把整数打印到字符串中，所以，spritnf 在大多数场合可以替代itoa。如：</p>
+<ul>
+<li>1&gt;把整数123 打印成一个字符串保存在s 中。</li>
+</ul>
+<p>​        sprintf(s, “%d”, 123); //产生”123”</p>
+</li>
+</ol>
+<ul>
+<li><p>2&gt;可以指定宽度，不足的左边补空格：</p>
+<p>​        sprintf(s, “%8d%8d”, 123, 4567); //产生：” 123 4567”</p>
+</li>
+</ul>
+<ul>
+<li><p>3&gt;当然也可以左对齐：</p>
+<p>​        sprintf(s, “%-8d%8d”, 123, 4567); //产生：”123 4567”</p>
+</li>
+</ul>
+<ul>
+<li><p>4&gt;也可以按照16 进制打印：</p>
+<p>​    sprintf(s, “%8x”, 4567); //小写16 进制，宽度占8 个位置，右对齐</p>
+<p>​    sprintf(s, “%-8X”, 4568); //大写16 进制，宽度占8 个位置，左对齐</p>
+</li>
+</ul>
+<p>   ​    这样，一个整数的16 进制字符串就很容易得到，但我们在打印16 进制内容时，通常想要一种左边补0 的等宽格式，那该怎么做呢？</p>
+<p>   ​    很简单，在表示宽度的数字前面加个0 就可以了。</p>
+<p>   ​        sprintf(s, “%08X”, 4567); //产生：”000011D7”</p>
+<h2 id="使用sprintf-的常见问题"><a href="#使用sprintf-的常见问题" class="headerlink" title="使用sprintf 的常见问题"></a><strong>使用sprintf 的常见问题</strong></h2><ul>
+<li><p>sprintf 是个变参函数，使用时经常出问题，而且只要出问题通常就是能导致程序崩溃的内存访问错误，但好在由sprintf 误用导致的问题虽然严重，却很容易找出，无非就是那么几种情况，通常用眼睛再把出错的代码多看几眼就看出来了</p>
+</li>
+<li><p>1&gt;&gt;缓冲区溢出</p>
+<p>​        第一个参数的长度太短了，没的说，给个大点的地方吧。当然也可能是后面的参数的问题，建议变参对应一定要细心，而打印字符串时，尽量使用”%.ns”的形式指定最大字符数。</p>
+</li>
+<li><p>2&gt;&gt;忘记了第一个参数</p>
+<p>​    低级得不能再低级问题，用printf 用得太惯了。</p>
+</li>
+<li><p>3&gt;&gt;变参对应出问题</p>
+<p>​        通常是忘记了提供对应某个格式符的变参，导致以后的参数统统错位，检查检查吧。尤其是对应”*”的那些参数，都提供了吗？不要把一个整数对应一个”%s”。</p>
+</li>
+</ul>
+<p>==*<u>如果用hexo new post创建的新的md文件，里面有title、date、tags，不知道为什么要把date删掉，博客才可以成功上传，有点迷</u>*==</p>
+<h1 id="怎么上传博客"><a href="#怎么上传博客" class="headerlink" title="怎么上传博客"></a>怎么上传博客</h1><p>在/e/blog/euniceBlog/source/_posts文件夹目录下，右键选择Git Bash Here,</p>
+<p>输入 ==hexo g== (完整命令为==hexo generate==)，用于生成静态文件</p>
+<p>然后 输入 ==hexo s==(完整命令为==hexo server==)，用于启动服务器，主要用来本地预览；</p>
+<p>完成后 打开浏览器输入 ==localhost:4000==，就多了刚写的那篇博客</p>
+<p><strong><em>==最后输入hexo d(hexo deploy)，用于将本地文件发布到github等git仓库上==</em></strong>(<strong>github/git还不太会使……</strong>)</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
     <link itemprop="mainEntityOfPage" href="http://shereunice.github.io/2020/06/22/hello-world/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -274,7 +408,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
           <a href="/archives">
-          <span class="site-state-item-count">11</span>
+          <span class="site-state-item-count">12</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
