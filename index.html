@@ -127,6 +127,85 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://shereunice.github.io/2021/03/30/Git%E6%8A%A5%E9%94%99/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="SHEReunice">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2021/03/30/Git%E6%8A%A5%E9%94%99/" class="post-title-link" itemprop="url">Git报错</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2021-03-30 17:18:34" itemprop="dateCreated datePublished" datetime="2021-03-30T17:18:34+08:00">2021-03-30</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2021-03-31 01:21:01" itemprop="dateModified" datetime="2021-03-31T01:21:01+08:00">2021-03-31</time>
+              </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="Git报错"><a href="#Git报错" class="headerlink" title="Git报错"></a>Git报错</h1><h2 id="does-not-have-a-commit-checked-out"><a href="#does-not-have-a-commit-checked-out" class="headerlink" title="does not have a commit checked out"></a>does not have a commit checked out</h2><p><img src="Git%E6%8A%A5%E9%94%99%2076288fe11ffa4114b864732a24c425c1/Untitled.png" alt="Git%E6%8A%A5%E9%94%99%2076288fe11ffa4114b864732a24c425c1/Untitled.png"></p>
+<p>查看了很多回答说是在base中自动创建了一个.git文件，把它删掉就好了，然后一直没有找到这个文件，这是一个隐藏文件，要打开文件管理中的查看→勾选显示隐藏的项目</p>
+<p><img src="Git%E6%8A%A5%E9%94%99%2076288fe11ffa4114b864732a24c425c1/Untitled%201.png" alt="Git%E6%8A%A5%E9%94%99%2076288fe11ffa4114b864732a24c425c1/Untitled%201.png"></p>
+<p><img src="Git%E6%8A%A5%E9%94%99%2076288fe11ffa4114b864732a24c425c1/Untitled%202.png" alt="Git%E6%8A%A5%E9%94%99%2076288fe11ffa4114b864732a24c425c1/Untitled%202.png"></p>
+<p>勾选之后就可以找到隐藏的.git文件</p>
+<p><img src="Git%E6%8A%A5%E9%94%99%2076288fe11ffa4114b864732a24c425c1/Untitled%203.png" alt="Git%E6%8A%A5%E9%94%99%2076288fe11ffa4114b864732a24c425c1/Untitled%203.png"></p>
+<p>把它删掉然后再次添加文件</p>
+<p><img src="Git%E6%8A%A5%E9%94%99%2076288fe11ffa4114b864732a24c425c1/Untitled%204.png" alt="Git%E6%8A%A5%E9%94%99%2076288fe11ffa4114b864732a24c425c1/Untitled%204.png"></p>
+<p>这样就可以成功添加到本地仓库了，接下来再按正常操作传到github上</p>
+<h2 id="git-push-不好使"><a href="#git-push-不好使" class="headerlink" title="git push 不好使"></a>git push 不好使</h2><p><img src="Git%E6%8A%A5%E9%94%99%2076288fe11ffa4114b864732a24c425c1/Untitled%205.png" alt="Git%E6%8A%A5%E9%94%99%2076288fe11ffa4114b864732a24c425c1/Untitled%205.png"></p>
+<p>解决：在push前面先pull</p>
+<p><img src="Git%E6%8A%A5%E9%94%99%2076288fe11ffa4114b864732a24c425c1/Untitled%206.png" alt="Git%E6%8A%A5%E9%94%99%2076288fe11ffa4114b864732a24c425c1/Untitled%206.png"></p>
+<h2 id="refusing-to-merge-unrelated-histories"><a href="#refusing-to-merge-unrelated-histories" class="headerlink" title="refusing to merge unrelated histories"></a>refusing to merge unrelated histories</h2><p><img src="Git%E6%8A%A5%E9%94%99%2076288fe11ffa4114b864732a24c425c1/Untitled%207.png" alt="Git%E6%8A%A5%E9%94%99%2076288fe11ffa4114b864732a24c425c1/Untitled%207.png"></p>
+<p>详细的解决办法：<a href="https://www.educative.io/edpresso/the-fatal-refusing-to-merge-unrelated-histories-git-error" target="_blank" rel="noopener">https://www.educative.io/edpresso/the-fatal-refusing-to-merge-unrelated-histories-git-error</a></p>
+<p>就是</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git pull origin master --allow-unrelated-histories</span><br></pre></td></tr></table></figure>
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
     <link itemprop="mainEntityOfPage" href="http://shereunice.github.io/2021/01/26/%E6%80%8E%E4%B9%88%E4%B8%8A%E4%BC%A0%E5%8D%9A%E5%AE%A2/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -213,8 +292,9 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">Posted on</span>
+              
 
-              <time title="Created: 2021-01-26 11:36:55" itemprop="dateCreated datePublished" datetime="2021-01-26T11:36:55+08:00">2021-01-26</time>
+              <time title="Created: 2021-01-26 11:36:55 / Modified: 23:39:07" itemprop="dateCreated datePublished" datetime="2021-01-26T11:36:55+08:00">2021-01-26</time>
             </span>
 
           
@@ -232,7 +312,7 @@
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ cd cs61b</span><br></pre></td></tr></table></figure>
 
 <p>继续</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git remote add skeleton https:&#x2F;&#x2F;github.com&#x2F;SHEReunice&#x2F;CS61B.git</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git clone https:&#x2F;&#x2F;github.com&#x2F;SHEReunice&#x2F;CS61B.git</span><br></pre></td></tr></table></figure>
 
 <p>next</p>
 <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ cd <span class="number">61B</span></span><br></pre></td></tr></table></figure>
@@ -1764,91 +1844,11 @@ id选择器，优先级 100
   
   
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="http://shereunice.github.io/2020/06/22/hello-world/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="SHEReunice">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hexo">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/06/22/hello-world/" class="post-title-link" itemprop="url">Hello World</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2020-06-22 23:54:01" itemprop="dateCreated datePublished" datetime="2020-06-22T23:54:01+08:00">2020-06-22</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2020-07-20 20:53:57" itemprop="dateModified" datetime="2020-07-20T20:53:57+08:00">2020-07-20</time>
-              </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
-<h2 id="Hello-Hexo"><a href="#Hello-Hexo" class="headerlink" title="Hello Hexo"></a>Hello Hexo</h2><h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/one-command-deployment.html" target="_blank" rel="noopener">Deployment</a></p>
-<p>==*<u>如果用hexo new post创建的新的md文件，里面有title、date、tags，不知道为什么要把date删掉，博客才可以成功上传，有点迷</u>*==</p>
-<h1 id="怎么上传博客"><a href="#怎么上传博客" class="headerlink" title="怎么上传博客"></a>怎么上传博客</h1><p>在/e/blog/euniceBlog/source/_posts文件夹目录下，右键选择Git Bash Here,</p>
-<p>输入 ==hexo g== (完整命令为==hexo generate==)，用于生成静态文件</p>
-<p>然后 输入 ==hexo s==(完整命令为==hexo server==)，用于启动服务器，主要用来本地预览；</p>
-<p>完成后 打开浏览器输入 ==localhost:4000==，就多了刚写的那篇博客</p>
-<p><strong><em>==最后输入hexo d(hexo deploy)，用于将本地文件发布到github等git仓库上==</em></strong>(<strong>github/git还不太会使……</strong>)</p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
 
   
+  <nav class="pagination">
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right" aria-label="Next page"></i></a>
+  </nav>
 
 
 
@@ -1912,7 +1912,7 @@ id选择器，优先级 100
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
           <a href="/archives">
-          <span class="site-state-item-count">10</span>
+          <span class="site-state-item-count">11</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
