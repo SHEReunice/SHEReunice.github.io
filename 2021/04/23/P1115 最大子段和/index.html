@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 4.2.1">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"shereunice.github.io","root":"/","scheme":"Mist","version":"8.0.0-rc.3","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+  </script>
+
+  <meta name="description" content="P1115 最大子段和日期：2021-04-24标签：数组开小了……题目描述 解题： 考虑：到第i个整数时，前面的子段和第i个整数的关系 如果前面的子段和加上第i个数比i小，那说明第i个整数可以替换前面的子段，那第i个数将成为新的子段的开始 如果前面的子段和加上第i个数比i大，那就把第i个数加上作为新的子段 也就是ans[i] &#x3D; max(ans[i-1] + arr[i], arr[i]) 但是">
+<meta property="og:type" content="article">
+<meta property="og:title" content="P1115 最大子段和">
+<meta property="og:url" content="http://shereunice.github.io/2021/04/23/P1115%20%E6%9C%80%E5%A4%A7%E5%AD%90%E6%AE%B5%E5%92%8C/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="P1115 最大子段和日期：2021-04-24标签：数组开小了……题目描述 解题： 考虑：到第i个整数时，前面的子段和第i个整数的关系 如果前面的子段和加上第i个数比i小，那说明第i个整数可以替换前面的子段，那第i个数将成为新的子段的开始 如果前面的子段和加上第i个数比i大，那就把第i个数加上作为新的子段 也就是ans[i] &#x3D; max(ans[i-1] + arr[i], arr[i]) 但是">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20210424013858315.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2N5bF9jc2RuXzE=,size_16,color_FFFFFF,t_70">
+<meta property="article:published_time" content="2021-04-23T10:16:34.000Z">
+<meta property="article:modified_time" content="2021-04-23T18:18:12.236Z">
+<meta property="article:author" content="SHEReunice">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://img-blog.csdnimg.cn/20210424013858315.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2N5bF9jc2RuXzE=,size_16,color_FFFFFF,t_70">
+
+<link rel="canonical" href="http://shereunice.github.io/2021/04/23/P1115%20%E6%9C%80%E5%A4%A7%E5%AD%90%E6%AE%B5%E5%92%8C/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'en'
+  };
+</script>
+
+  <title>P1115 最大子段和 | Hexo</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar">
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">Hexo</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://shereunice.github.io/2021/04/23/P1115%20%E6%9C%80%E5%A4%A7%E5%AD%90%E6%AE%B5%E5%92%8C/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="SHEReunice">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          P1115 最大子段和
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2021-04-23 18:16:34" itemprop="dateCreated datePublished" datetime="2021-04-23T18:16:34+08:00">2021-04-23</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2021-04-24 02:18:12" itemprop="dateModified" datetime="2021-04-24T02:18:12+08:00">2021-04-24</time>
+              </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h1 id="P1115-最大子段和"><a href="#P1115-最大子段和" class="headerlink" title="P1115 最大子段和"></a>P1115 最大子段和</h1><h2 id="日期：2021-04-24"><a href="#日期：2021-04-24" class="headerlink" title="日期：2021-04-24"></a>日期：2021-04-24</h2><h2 id="标签：数组开小了……"><a href="#标签：数组开小了……" class="headerlink" title="标签：数组开小了……"></a>标签：数组开小了……</h2><h3 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h3><p><img src="https://img-blog.csdnimg.cn/20210424013858315.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2N5bF9jc2RuXzE=,size_16,color_FFFFFF,t_70" alt="https://img-blog.csdnimg.cn/20210424013858315.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2N5bF9jc2RuXzE=,size_16,color_FFFFFF,t_70"></p>
+<h3 id="解题："><a href="#解题：" class="headerlink" title="解题："></a>解题：</h3><ul>
+<li>考虑：到第i个整数时，前面的子段和第i个整数的关系</li>
+<li>如果前面的子段和加上第i个数比i小，那说明第i个整数可以替换前面的子段，那第i个数将成为新的子段的开始</li>
+<li>如果前面的子段和加上第i个数比i大，那就把第i个数加上作为新的子段</li>
+<li>也就是<code>ans[i] = max(ans[i-1] + arr[i], arr[i])</code></li>
+<li>但是不能直接取最后一次计算出的子段和，每一次计算出的子段和都需要进行比较，选出最大值作为结果</li>
+<li>小错误：一开始没看到题目说的是2*10^5^，数组开小了所以一直不能AC</li>
+</ul>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="keyword">long</span> <span class="keyword">long</span> arr[<span class="number">200001</span>];<span class="comment">//数组开大点</span></span><br><span class="line"><span class="keyword">long</span> <span class="keyword">long</span> ans[<span class="number">200001</span>];</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">	<span class="keyword">int</span> n;</span><br><span class="line">	<span class="keyword">long</span> <span class="keyword">long</span> sum;</span><br><span class="line">	<span class="built_in">cin</span> &gt;&gt; n;</span><br><span class="line">	<span class="built_in">cin</span>&gt;&gt;arr[<span class="number">0</span>];</span><br><span class="line">	sum = arr[<span class="number">0</span>];</span><br><span class="line">	ans[<span class="number">0</span>] = arr[<span class="number">0</span>];</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">1</span>; i &lt; n; i++)&#123;</span><br><span class="line">		<span class="built_in">cin</span> &gt;&gt; arr[i];</span><br><span class="line">		ans[i] = <span class="built_in">max</span>(ans[i<span class="number">-1</span>] + arr[i], arr[i]);</span><br><span class="line">		sum = <span class="built_in">max</span>(ans[i],sum);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="built_in">cout</span> &lt;&lt; sum;</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="来自题解的其他点子："><a href="#来自题解的其他点子：" class="headerlink" title="来自题解的其他点子："></a>来自题解的其他点子：</h3><p>子段和最大，也就是集合除了这个子段，前面的部分前缀和最小，用这个思想进行解题</p>
+<ul>
+<li>a数组是储存输入的数值</li>
+<li>c[i]表示的是a数组从头加到i的和</li>
+<li>b[i]表示的是从头到i包括i的的最大子段和</li>
+<li>minn储存最小的前缀和（因为要减去所以要尽量小）</li>
+<li>动态转移方程式：b[i]=c[i]-minn（总和减去前缀和）</li>
+<li>mann是最后输出b数组最大的值（题目求最大的子段和）</li>
+<li>minn一定要初始化成0</li>
+<li>如果设成a[1]：如果是正数会减去正数，正解是不减，就是没有减去的子段和</li>
+<li>相反mann要设成很小的值</li>
+</ul>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="keyword">int</span> n,a[<span class="number">200001</span>]=&#123;<span class="number">0</span>&#125;,b[<span class="number">200001</span>]=&#123;<span class="number">0</span>&#125;,c[<span class="number">200001</span>]=&#123;<span class="number">0</span>&#125;,minn=<span class="number">0</span>,mann=<span class="number">-99999</span>;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="built_in">cin</span>&gt;&gt;n;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=n;i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">cin</span>&gt;&gt;a[i];</span><br><span class="line">        c[i]=c[i<span class="number">-1</span>]+a[i];</span><br><span class="line">    &#125;</span><br><span class="line">    b[<span class="number">1</span>]=a[<span class="number">1</span>];minn=<span class="built_in">min</span>(<span class="number">0</span>,c[<span class="number">1</span>]);</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">2</span>;i&lt;=n;i++)</span><br><span class="line">    &#123;</span><br><span class="line">        b[i]=c[i]-minn;</span><br><span class="line">        minn=<span class="built_in">min</span>(minn,c[i]);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=n;i++) mann=<span class="built_in">max</span>(mann,b[i]);</span><br><span class="line">    <span class="built_in">cout</span>&lt;&lt;mann&lt;&lt;<span class="built_in">endl</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2021/03/30/%E4%B8%8A%E4%BC%A0%E6%9C%AC%E5%9C%B0%E6%96%87%E4%BB%B6%E5%88%B0github%E5%AD%98%E5%82%A8%E5%BA%93/" rel="prev" title="上传本地文件到github存储库">
+      <i class="fa fa-chevron-left"></i> 上传本地文件到github存储库
+    </a></div>
+      <div class="post-nav-item"></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#P1115-最大子段和"><span class="nav-number">1.</span> <span class="nav-text">P1115 最大子段和</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#日期：2021-04-24"><span class="nav-number">1.1.</span> <span class="nav-text">日期：2021-04-24</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#标签：数组开小了……"><span class="nav-number">1.2.</span> <span class="nav-text">标签：数组开小了……</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#题目描述"><span class="nav-number">1.2.1.</span> <span class="nav-text">题目描述</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#解题："><span class="nav-number">1.2.2.</span> <span class="nav-text">解题：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#来自题解的其他点子："><span class="nav-number">1.2.3.</span> <span class="nav-text">来自题解的其他点子：</span></a></li></ol></li></ol></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">SHEReunice</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives">
+          <span class="site-state-item-count">13</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+  </nav>
+</div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">SHEReunice</span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/mist/" class="theme-link" rel="noopener" target="_blank">NexT.Mist</a>
+  </div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/muse.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+</body>
+</html>
